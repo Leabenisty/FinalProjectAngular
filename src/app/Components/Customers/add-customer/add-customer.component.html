@@ -1,0 +1,25 @@
+<form [formGroup]="addForm">
+    <div>
+        <input type="text" formControlName="name" placeholder="name">
+        @if(addForm.controls['name'].errors){
+            <div>Must Max 7 letter</div>
+        }
+        <input type="text" formControlName="address" placeholder="address">
+        @if(addForm.controls['address'].errors)
+        {
+            <p>Must Min 4 letter</p >                        >
+        }
+        <input type="text" formControlName="phoneNumber" placeholder="phoneNumber">
+        @if(addForm.controls['phoneNumber'].errors)
+        {
+            <div>Must Enter Model</div>
+        }
+        <!-- <input type="text" formControlName="status" placeholder="status">
+        @if(addForm.controls['status'].errors)
+        {
+            <div>Must Min 2 digit </div>
+        } -->
+       
+    </div>
+    <button (click)="save()" [disabled]="!addForm.valid"> Save </button>
+</form>

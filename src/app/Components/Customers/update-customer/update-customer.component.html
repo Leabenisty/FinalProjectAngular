@@ -1,0 +1,49 @@
+<!-- <button mat-icon-button color="primary" (click)="ngOnInit()">
+    <mat-icon>edit</mat-icon>
+  </button>
+
+<form [formGroup]="updateForm">
+    <div>
+        <input type="text" formControlName="name" placeholder="name">
+        @if(updateForm.controls['name'].errors){
+            <div>Must Max 7 letter</div>
+        }
+        <input type="text" formControlName="address" placeholder="address">
+        @if(updateForm.controls['address'].errors)
+        {
+            <p>Must Min 4 letter</p >                  
+        }
+        <input type="text" formControlName="phoneNumber" placeholder="phoneNumber">
+        @if(updateForm.controls['phoneNumber'].errors)
+        {
+            <div>Must Enter Model</div>
+        }
+       
+       
+    </div>
+    <button (click)="onUpdate()" [disabled]="!updateForm.valid"> Save To Customer</button>
+</form> -->
+
+<!-- update-customer.component.html -->
+<!-- update-customer.component.html -->
+<button mat-icon-button color="primary" (click)="toggleEdit()">
+    <mat-icon>edit</mat-icon>
+</button>
+
+<form [formGroup]="updateForm">
+    <div>
+        <input type="text" formControlName="name" placeholder="name">
+        <div *ngIf="updateForm.controls['name'].errors">
+            <div *ngIf="updateForm.controls['name'].errors['maxlength']">Must Max 7 letter</div>
+        </div>
+        <input type="text" formControlName="address" placeholder="address">
+        <div *ngIf="updateForm.controls['address'].errors">
+            <div *ngIf="updateForm.controls['address'].errors['minlength']">Must Min 4 letter</div>
+        </div>
+        <input type="text" formControlName="phoneNumber" placeholder="phoneNumber">
+        <div *ngIf="updateForm.controls['phoneNumber'].errors">
+            <div *ngIf="updateForm.controls['phoneNumber'].errors['pattern']">Must Enter Model</div>
+        </div>
+    </div>
+    <button (click)="onUpdate()" [disabled]="!updateForm.valid"> Save To Customer</button>
+</form>

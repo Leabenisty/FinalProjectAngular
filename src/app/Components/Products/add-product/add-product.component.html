@@ -1,0 +1,15 @@
+<form [formGroup]="addProductForm">
+    <div>
+        <input type="text" appCapitalizeFirst formControlName="name" placeholder="name">
+        @if(addProductForm.controls['name'].errors){
+            <div>Must Max 7 letter</div>
+        }
+        <input type="number" formControlName="price" placeholder="price">
+        @if(addProductForm.controls['price'].errors)
+        {
+            <p>You must enter the price!</p >                        >
+        }
+       
+    </div>
+    <button (click)="save()" [disabled]="!addProductForm.valid"> Save </button>
+</form>

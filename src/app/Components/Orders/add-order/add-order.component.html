@@ -1,0 +1,10 @@
+<form (ngSubmit)="submitOrder()">
+  <div *ngFor="let product of products">
+    <label>
+      <input type="checkbox" [(ngModel)]="product.selected" name="selected_{{product.id}}">
+      {{ product.name }}
+    </label>
+    <input *ngIf="product.selected" type="number" [(ngModel)]="product.quantity" name="quantity_{{product.id}}" min="1">
+  </div>
+  <button type="submit">Submit Order</button>
+</form>

@@ -1,0 +1,15 @@
+.mat-tab-group {
+    margin-bottom: 48px;
+  }
+  table {
+    width: 100%;
+  }
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+
+.status-not-active {
+  color: red;
+  font-weight: bold;
+}
